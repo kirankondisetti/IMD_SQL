@@ -21,7 +21,7 @@ WITH SimilarGenres AS (
 		INNER JOIN
 			SimilarGenres AS sg
 				ON sg.value IN (SELECT value FROM STRING_SPLIT(tb.genres, ','))
-		WHERE tb.genres NOT LIKE '%Comedy%'
+		WHERE tb.genres LIKE '%Comedy%'
 			AND LOWER(titleType) = 'movie'
 )
 --SELECT average ratings for similar genres per year 2000-2009
